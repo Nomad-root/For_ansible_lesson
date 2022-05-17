@@ -1,0 +1,8 @@
+---
+  - name: Рестарт апач RH
+    service: name=httpd state=restarted
+    when: ansible_os_family == "RedHat"
+  - name: Рестарт апач DEB
+    service: name=apache2 state=restarted
+    when: ansible_os_family == "Debian"
+

@@ -1,0 +1,22 @@
+---
+  - block:
+       - name: DEB Уствновка апач
+         apt: name=apache2 state=latest
+       - name: DEB Старт апач
+         service: name=apache2 state=started enabled=yes
+    when: ansible_os_family == "Debian"
+
+  - block:
+       - name: RH Уствновка апач
+         yum: name=httpd state=latest
+       - name: RH Старт апач
+         service: name=httpd state=started enabled=yes
+    when: ansible_os_family == "RedHat"
+
+  - name: Общая Установка моей стрвницы
+#    copy: src={{ sorce }} dest={{ dest }}/index.html mode=0555
+    template: src=index.j2 dest={{ dest }}/index.html mode=0555
+    notify:
+        - Рестарт апач RH
+        - Рестарт апач DEB
+

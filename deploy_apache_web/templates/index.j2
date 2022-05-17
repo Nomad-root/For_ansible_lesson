@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ ansible_distribution }}</title>
+  </head>
+  <body>
+Privat IP addres: {{ ansible_default_ipv4.address }} <br>
+Vladelec: {{ owner }} <br>
+Vremay: {{ ansible_date_time.time }} <br>
+  </body>
+</html>
+
