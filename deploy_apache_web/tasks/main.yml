@@ -14,8 +14,8 @@
     when: ansible_os_family == "RedHat"
 
   - name: Общая Установка моей стрвницы
-#    copy: src={{ sorce }} dest={{ dest }}/index.html mode=0555
-    template: src=index.j2 dest={{ dest }}/index.html mode=0555
+    copy: src={{ sorce }} dest={{ dest }}/index.html mode=0555
+#    template: src=index.j2 dest={{ dest }}/index.html mode=0555
     notify:
         - Рестарт апач RH
         - Рестарт апач DEB
