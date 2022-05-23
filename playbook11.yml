@@ -4,5 +4,5 @@
   become: yes
   tasks:
   - name: Copy project    
-    copy: src=/etc/ansible/roles/ dest=/home/ec2-user/wl1/ mode=0555
+#    copy: src=/etc/ansible/roles/ dest=/home/ec2-user/wl1/ mode=0555
     delegate_to: 127.0.0.1
