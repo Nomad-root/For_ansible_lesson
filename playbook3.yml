@@ -1,7 +1,7 @@
 ---
 - name: DEB Моя страница апач
   hosts: all
-#  become: yes
+  become: yes
 
   roles:
      - { role: deploy_apache_web, when: ansible_os_family == "Debian" }
