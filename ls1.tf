@@ -12,7 +12,7 @@ resource "aws_instance" "UBU_web_server" {
 #!/bin/bash
 sudo apt update
 sudo apt install apache2
-sudo myip='curl http://169.254.169.254/latest/meta-data/local-ipv4'
+sudo myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
 sudo echo '<h2>UBUWebserver with IP: $myip</h2><br>Bild by Terraform!' > /var/www/html/index.html
 sudo service apache2 start
 sudo chkconfig apache2 on
